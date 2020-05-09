@@ -6,4 +6,4 @@
 
 Перед началом работы создайте сеть nginx-proxy
 
-`docker network create nginx-proxy`
+`docker network create -o "com.docker.network.driver.mtu"="1400" nginx-proxy`
