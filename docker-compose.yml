@@ -8,6 +8,7 @@ services:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./container/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./container/conf.d/custom.conf:/etc/nginx/conf.d/custom.conf:ro
       - ./container/503.html:/usr/share/nginx/html/503.html:ro
       - ./container/lebowski.gif:/usr/share/nginx/html/lebowski.gif
