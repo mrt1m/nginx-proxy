@@ -1,17 +1,17 @@
 version: "3"
 services:
   nginx-proxy:
+    build:
+      context: ./container/nginx-proxy
+      dockerfile: Dockerfile
     restart: always
-    image: jwilder/nginx-proxy
     container_name: nginx-proxy
     ports:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./container/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./container/conf.d/custom.conf:/etc/nginx/conf.d/custom.conf:ro
-      - ./container/503.html:/usr/share/nginx/html/503.html:ro
-      - ./container/lebowski.gif:/usr/share/nginx/html/lebowski.gif
+    networks:
+      - default
 networks:
   default:
     external:
